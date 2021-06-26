@@ -1,0 +1,53 @@
+.registration-form {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 13%, rgba(9,121,95,1) 69%, rgba(0,255,235,1) 100%);
+}
+
+.registration-form > form {
+    width: 90%;
+}
+
+.registration-form .name {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+}
+
+.user-input {
+    position: relative;
+}
+
+.user-input.name {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+} 
+
+input {
+    margin: 0.4em;
+}
+
+label {
+    position: absolute;
+    left: 1.6em;
+    top: -15px;
+    color: white;
+    font-size: 0.8em;
+}
+
+button {
+    height: 2em;
+    font-size: 1em;
+    width: 40%;
+    border: none;
+    border-radius: 1em;
+    margin: 1em;
+    cursor: pointer;
+}

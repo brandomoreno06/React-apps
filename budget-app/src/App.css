@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template: 10% 90% / 1fr;
+  grid-template-areas: "header" "main-section";
+}

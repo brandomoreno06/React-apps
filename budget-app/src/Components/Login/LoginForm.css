@@ -1,0 +1,39 @@
+.login-form{
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(2,0,36,1) 13%, rgba(9,121,95,1) 69%, rgba(0,255,235,1) 100%);
+}
+
+.login-form > form {
+    width: 80%;
+}
+
+button {
+    height: 2em;
+    font-size: 1em;
+    width: 50%;
+    border: none;
+    border-radius: 1em;
+    margin-top: 1.5em;
+    cursor: pointer;
+}
+
+.register-now {
+    color: white;
+    margin-top: 2em;
+}
+
+.register-now > span {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register-now > span:hover {
+    color: blue;
+}
