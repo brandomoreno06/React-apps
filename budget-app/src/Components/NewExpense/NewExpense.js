@@ -12,7 +12,6 @@ const NewExpense = (props) => {
         props.onAddExpense(expenseData);
     };
 
-    //ASSIGNMENT
     const [displayForm, setDisplayForm] = useState(false)
     const displayFormHandler = (value) => {
         setDisplayForm(value);

@@ -1,10 +1,10 @@
 import "./SideBar.css"
-// import Card from "../UI/Card";
+import AccountSummary from "../AccountSummary/AccountSummary";
 
 
 const SideBar = (props) => {
     return(
-        <div className="sidebar">sidebar</div>
+        <AccountSummary expenses={props.expenses} budget={props.budget} />
     )
 }
 

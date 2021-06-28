@@ -18,7 +18,17 @@
 
 .expenses-filter select {
     font: inherit;
-    padding: 0.5rem 3rem;
+    padding: 0.25rem 2rem;
     font-weight: bold;
-    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-bottom: 2px solid lightgreen;
+    height: 2rem;
+    display: grid;
+    place-content: center;
+}
+
+.expenses-filter h5 {
+    text-align: left;
 }

@@ -46,6 +46,7 @@ const UserRegistration = (props) => {
 
     return(
         <Card className="registration-form">
+            <h2>Register</h2>
             <form onSubmit={submitHandler}>
                 <div className="name">
                     <UserInput type="name" name="firstName" value={user.firstName} onChange={changeHandler} placeholder="First Name" />

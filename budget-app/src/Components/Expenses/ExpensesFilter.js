@@ -1,27 +1,20 @@
 import "./ExpensesFilter.css"
 
 
-// const ExpensesFiltercontrol = (props) => {
-//     return(
-//         <option value={props.children}>{props.children}</option>
-//     )
-// }
-
-
 const ExpensesFilter = (props) => {
 
     const dropDown = (e) => props.onChangeFilter(e.target.value);
-
+    const allYears = props.expenses.map(expense => {return expense.date.getFullYear()})
+    const uniqueYears = [...new Set(allYears)].sort((a,b) => a-b);
+    
     return(
         <div className="expenses-filter">
             <div className="expenses-filter__control">
-                <label htmlFor="date">Filter by year</label>
+                <h5>Filter by:</h5>
+                
                 <select onChange={dropDown} value={props.selected}>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
+                    <option value="true">All Year</option>
+                    {uniqueYears.map(year => ( <option key={year} value={year}>{year}</option> ))}
                 </select>
                 </div>
         </div>

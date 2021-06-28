@@ -19,6 +19,14 @@ const usersData = [
     contact: "0921",
     username: "avion2",
     password: "qwerty2" 
+  },
+  { 
+    firstName: "a",
+    lastName: "school2",
+    email: "avion2@gmail.com",
+    contact: "0921",
+    username: "a",
+    password: "a" 
   }
 ];
 

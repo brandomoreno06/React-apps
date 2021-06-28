@@ -7,7 +7,7 @@ const ExpenseForm = (props) => {
     const [newExpense, setNewExpense] = useState({
         category: "Home",
         amount: "",
-        date: "",
+        date: "2021-06-28",
         notes: "",
     });
 
@@ -20,19 +20,20 @@ const ExpenseForm = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
+        
+        if(amount <= 0) return;
 
         const expenseData = {
             category: category,
-            amount: amount,
+            amount: parseFloat(amount),
             date: new Date(date),
             notes: notes
         };
-
         props.onSaveExpenseData(expenseData);
         setNewExpense({
-            category: "",
+            category: "Home",
             amount: "",
-            date: "",
+            date: "2021-06-28",
             notes: "",
         })
     }
@@ -43,13 +44,16 @@ const ExpenseForm = (props) => {
     return(
         <form onSubmit={submitHandler} className={props.className}>
             <div className="new-expense__controls">
-                <select name="category" onChange={changeHandler} value={props.selected}>
-                    <option value="Home">Home</option>
-                    <option value="Travel">Travel</option>
-                    <option value="Utility">Utility</option>
-                </select>
+                <div className="new-expense__control">
+                    <label>Category</label>
+                        <select name="category" onChange={changeHandler} value={props.selected}>
+                            <option value="Home">Home</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Utility">Utility</option>
+                        </select>
+                </div>
 
-                <UserInput className="new-expense__control" type="number" name="amount" value={amount} onChange={changeHandler} placeholder="Amount"/>
+                <UserInput className="new-expense__control" type="number" name="amount" value={amount} onChange={changeHandler} placeholder="Amount" min="0" />
 
                 <UserInput className="new-expense__control" type="date" name="date" value={date} onChange={changeHandler} placeholder="Date"/>
 

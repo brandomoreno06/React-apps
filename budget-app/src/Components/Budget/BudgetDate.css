@@ -1,0 +1,25 @@
+.budget-date {
+    display: flex;
+    flex-direction: row;
+    width: 6rem;
+    color: white;
+    border-radius: 5px;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.budget-date__month {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 0.5ch;
+}
+
+.budget-date__year {
+    font-size: 0.75rem;
+    margin-bottom: 1px;
+}
+
+.budget-date__header {
+    display: flex;
+    flex-direction: row;
+}

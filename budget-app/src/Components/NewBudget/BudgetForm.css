@@ -1,21 +1,24 @@
-.new-expense__controls {
+.new-budget__controls {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: center;
+    column-gap: 2rem;
     text-align: left;
     width: 80%;
     padding: 1em;
     margin-inline: auto;
 }
-.new-expense__control label {
+
+
+.new-budget__control label {
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
     visibility: visible;
+    left: 0;
     position: static;
 }
-.new-expense__control input, .new-expense__control select {
+.new-budget__control input, .new-budget__control select {
     font: inherit;
     padding: 0.5rem;
     height: 2em;
@@ -29,26 +32,26 @@
     color: white; */
 }
 
-.new-expense__control select {
+.new-budget__control select {
     padding: 0 0.5em;
     border: none;
     border-bottom: 2px solid gray;
 }
 
-.new-expense__control {
+.new-budget__control {
     width: 45%;
 }
 
-.new-expense__actions {
+.new-budget__actions {
     text-align: right;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    column-gap: 5rem;
 }
 
-.new-expense__actions button {
+.new-budget__actions button {
     height: 2em;
     font-size: 1em;
     width: 40%;
@@ -57,5 +60,5 @@
     cursor: pointer;
     display: grid;
     place-content: center;
-    margin: .5em;
+    margin: .5em
 }

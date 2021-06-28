@@ -16,13 +16,10 @@ const LoginForm = (props) => {
 
     const registerClickHandler = () => props.isRegisterClick(true);
     
-    const [isSavedUser, setIsSavedUser] = useState(false);
     const loginHandler = (e) => {
-        console.log(props.registeredAccounts)
         e.preventDefault();
         const foundUser = props.registeredAccounts.find(user => (user.username === username))
         if (foundUser && foundUser.password === password) {
-            setIsSavedUser(true);
             props.loginSucessHandler(true);
         }
     }
@@ -30,6 +27,7 @@ const LoginForm = (props) => {
 
     return(
         <Card className="login-form">
+            <h2>Login</h2>
             <form onSubmit={loginHandler}>
                 <div className="user-input"> 
                     <label>Username</label>

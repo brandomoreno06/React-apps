@@ -5,4 +5,5 @@
   display: grid;
   grid-template: 10% 90% / 1fr;
   grid-template-areas: "header" "main-section";
+  overflow: hidden
 }

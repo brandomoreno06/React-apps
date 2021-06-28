@@ -37,3 +37,8 @@ button {
 .register-now > span:hover {
     color: blue;
 }
+
+.login-form h2 {
+    color: white;
+  }
+  

@@ -1,4 +1,4 @@
-.new-expense {
+.new-budget {
     background: rgb(2,0,36);
     background: linear-gradient(45deg, rgba(2,0,36,1) 13%, rgba(9,121,95,1) 69%, rgba(0,255,235,1) 100%);
     padding: 1rem;
@@ -9,7 +9,7 @@
     text-align: center;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }
-.new-expense button {
+.new-budget button {
     font: inherit;
     cursor: pointer;
     padding: 1rem 2rem;
@@ -25,15 +25,15 @@
     margin-inline: auto;
     font-weight: bold;
 }
-.new-expense button:hover, .new-expense button:active {
+.new-budget button:hover, .new-budget button:active {
     background: linear-gradient(90deg, rgba(0,36,28,1) 0%, rgba(80,223,188,0.31976540616246496) 48%, rgba(0,255,235,1) 100%);
 }
 
-.new-expense button.alternative {
+.new-budget button.alternative {
     color: #220131;
     border-color: transparent;
     background-color: transparent;
 }
-.new-expense button.alternative:hover, .new-expense button.alternative:active {
+.new-budget button.alternative:hover, .new-budget button.alternative:active {
     background-color: #ddb3f8;
 }
