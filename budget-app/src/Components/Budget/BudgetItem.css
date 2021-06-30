@@ -8,6 +8,7 @@
     border-radius: 12px;
     background-color: rgba(255,255,235,0.2);
     text-align: left;
+    position: relative;
 }
   
 .budget-item__description {
@@ -57,3 +58,9 @@
     justify-self: end;
     text-shadow: 0 2px 2px gray
 }
+
+
+
+.budget-item:hover .trash__icon {
+    display: block;
+  }

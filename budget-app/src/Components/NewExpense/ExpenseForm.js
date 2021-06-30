@@ -1,11 +1,12 @@
 import {useState} from "react";
 import "./ExpenseForm.css";
 import UserInput from "../Login/UserInput";
+import { categories } from "../MainSection/MainContent";
 
 
 const ExpenseForm = (props) => {
     const [newExpense, setNewExpense] = useState({
-        category: "Home",
+        category: "Housing",
         amount: "",
         date: "2021-06-28",
         notes: "",
@@ -27,19 +28,37 @@ const ExpenseForm = (props) => {
             category: category,
             amount: parseFloat(amount),
             date: new Date(date),
-            notes: notes
+            notes: notes,
         };
         props.onSaveExpenseData(expenseData);
         setNewExpense({
-            category: "Home",
+            category: "Housing",
             amount: "",
             date: "2021-06-28",
-            notes: "",
+            notes: ""
         })
     }
 
+    //To Continue.... utilize submit handler...with type"edit"
+    const confirmEditHandler = () => {
+        const [category, amount, notes, date, type, id] = props.isEditing;
+        
+        const expenseDataEdit = {
+            category: category,
+            amount: parseFloat(amount),
+            date: new Date(date),
+            notes: notes,
+            type: type,
+            id: id
+        }
+
+        console.log(expenseDataEdit)
+    }
+    //To Continue....
+
+
     //on Cancel
-    const hideFormHandler = () => props.hideFormHandler(false);
+    const hideFormHandler = () => props.hideFormHandler();
 
     return(
         <form onSubmit={submitHandler} className={props.className}>
@@ -47,9 +66,9 @@ const ExpenseForm = (props) => {
                 <div className="new-expense__control">
                     <label>Category</label>
                         <select name="category" onChange={changeHandler} value={props.selected}>
-                            <option value="Home">Home</option>
-                            <option value="Travel">Travel</option>
-                            <option value="Utility">Utility</option>
+                            {categories.map(category => { 
+                                return <option key={category.toString()} value={category}>{category}</option>
+                            })}
                         </select>
                 </div>
 
@@ -58,11 +77,15 @@ const ExpenseForm = (props) => {
                 <UserInput className="new-expense__control" type="date" name="date" value={date} onChange={changeHandler} placeholder="Date"/>
 
                 <UserInput className="new-expense__control" type="text" name="notes" value={notes} onChange={changeHandler} placeholder="Notes" />
+                            
+                {props.isEditing === null || props.isEditing === undefined ?
+                    <div className="new-expense__actions">
+                        <button type="button" onClick={hideFormHandler}>Cancel</button>
+                        <button type="submit">Add Expense</button>
+                    </div> :
+                    <button type="button" onClick={confirmEditHandler}>Confirm Edit</button>
+                }
 
-                <div className="new-expense__actions">
-                    <button type="button" onClick={hideFormHandler}>Cancel</button>
-                    <button type="submit">Add Expense</button>
-                </div>
             </div>
         </form>
     );

@@ -1,22 +1,19 @@
-import "./ExpensesFilter.css";
+import "./BudgetFilter.css";
 import { months, categories } from "../MainSection/MainContent";
 
 
-const ExpensesFilter = (props) => {
+const BudgetFilter = (props) => {
 
-    const allYears = props.expenses.map(expense => {return expense.date.getFullYear()})
+    const allYears = props.budget.map(budget => {return budget.date.getFullYear()})
     const uniqueYears = [...new Set(allYears)].sort((a,b) => a-b);
-    
+
     const dropDown = (e) => {
         props.onChangeFilter([e.target.name, e.target.value]);
     }
-   
-    
 
     return(
-        <div className="expenses-filter">
-            <div className="expenses-filter__control">
-
+        <div className="budget-filter">
+            <div className="budget-filter__control">
                 <h5>Filter by:</h5>
                 
                 <div className="filter__by_year">
@@ -46,4 +43,4 @@ const ExpensesFilter = (props) => {
 }
 
 
-export default ExpensesFilter;
+export default BudgetFilter;

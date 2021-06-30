@@ -6,15 +6,18 @@ const NewBudget = (props) => {
     const saveBudgetHandler = (enteredBudgetData) => {
         const budgetData = {
             ...enteredBudgetData,
-            id: Math.random().toString()
+            id: Math.random().toString(),
+            type: "budget"
         };
         props.onAddBudget(budgetData);
     };
+
 
     const [displayForm, setDisplayForm] = useState(false)
     const displayFormHandler = (value) => {
         setDisplayForm(value);
     }
+    
 
     const showForm = () => { displayFormHandler(true) };
     

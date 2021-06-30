@@ -3,10 +3,16 @@ import Expenses from "../Expenses/Expenses";
 import NewExpense from "../NewExpense/NewExpense";
 import Budget from "../Budget/Budget";
 import NewBudget from "../NewBudget/NewBudget";
+import { useState } from "react";
 
   
 const DashBoard = (props) => {
   
+  const[isEditing, setIsEditing] = useState([]);
+  const editedItemHandler = (editedItem) => {
+    setIsEditing(editedItem); 
+  }
+
   const addExpenseHandler = (expenseData) => {
     const newExpense = {...expenseData};
     props.saveExpenseHandler(newExpense)
@@ -21,10 +27,10 @@ const DashBoard = (props) => {
 
   return(
     <div className="dashboard">
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses expenses={props.expenses} deletedItems={deletedItemHandler} />
+      <NewExpense onAddExpense={addExpenseHandler} isEditing={isEditing} />
+      <Expenses expenses={props.expenses} deletedItems={deletedItemHandler} editedItems={editedItemHandler} />
       <NewBudget onAddBudget={addBudgetHandler}/>
-      <Budget budget={props.budget}/>
+      <Budget budget={props.budget} deletedItems={deletedItemHandler}/>
     </div>
   )
 }
