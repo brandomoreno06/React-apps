@@ -1,0 +1,81 @@
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border-radius: 12px;
+  background-color: rgba(255,255,235,0.2);
+  text-align: left;
+  position: relative;
+}
+
+.expense-item__description {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-auto-flow: row;
+  align-items: center;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.expense-item h2, h3 {
+  color: #3a3a3a;
+  font-size: 1rem;
+  flex: 1;
+  margin: 0 1rem;
+  color: white;
+}
+
+.expense-item h3 {
+  font-weight: 100;
+}
+
+.expense-item__price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: rgb(0,36,30);
+  background: linear-gradient(45deg, rgba(0,36,30,1) 0%, rgba(9,230,178,1) 88%, rgba(0,255,235,1) 100%);
+  background: rgb(180,58,110);
+  background: linear-gradient(45deg, rgba(180,58,110,1) 0%, rgba(253,29,29,0.6699054621848739) 19%, rgba(252,176,69,1) 100%);
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+  width: max-content;
+  min-width: 3.5rem;
+  justify-self: end;
+  margin-right: 0.5rem;
+}
+
+
+.trash__icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+
+.expense-item:hover .trash__icon {
+  display: block;
+}
+
+.edit__icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+
+.expense-item:hover .edit__icon {
+  display: block;
+}
