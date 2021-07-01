@@ -81,11 +81,19 @@ const categories = ["Housing", "Transportation", "Food", "Utilities", "Insurance
 const MainContent = (props) => {
 
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
   const saveNewExpense = (expense) => {
     setExpenses((previousExpenses) => {
-      return [expense, ...previousExpenses];
+      if(expense.edited === true) {
+        const indexOfEdited = expenses.map(expense => { return expense.id; }).indexOf(expense.id);
+        previousExpenses[indexOfEdited] = expense;
+        return [...previousExpenses];
+      } else { 
+        return [expense, ...previousExpenses]; 
+      }
     })
   }
+
 
   const [budget, setBudget] = useState(DUMMY_BUDGET);
   const saveNewBudget = (budget) => {
@@ -95,34 +103,40 @@ const MainContent = (props) => {
     })
   }
 
+
   const deletedItemHandler = (deletedItem) => {
     const [type, id] = deletedItem;
-    
 
     if(type === "expense") {
       const indexOfDeleted = expenses.map(expense => { return expense.id; }).indexOf(id);
-
       setExpenses(expenses => {
         return [...expenses.slice(0, indexOfDeleted), ...expenses.slice(indexOfDeleted + 1)];
       });
     }
-
     if(type === "budget") {
       const indexOfDeleted = budget.map(budget => { return budget.id; }).indexOf(id);
-
       setBudget(budget => {
         return [...budget.slice(0, indexOfDeleted), ...budget.slice(indexOfDeleted + 1)];
       });
     }
   }
 
+  const [dashBoardDisplay, setDashBoardDisplay] = useState("overview");
+  const dashBoardDisplayHandler = (section) => {
+    setDashBoardDisplay(section)
+    console.log(dashBoardDisplay)
+  }
+
   return(
       <div className="main-content">
-          <DashBoard expenses={expenses} budget={budget} saveExpenseHandler={saveNewExpense} saveBudgetHandler={saveNewBudget} deletedItems={deletedItemHandler} />
-          <SideBar expenses={expenses} budget={budget}/>
+          <DashBoard expenses={expenses} budget={budget} saveExpenseHandler={saveNewExpense} saveBudgetHandler={saveNewBudget} deletedItems={deletedItemHandler} displaySection={dashBoardDisplay} />
+          <SideBar expenses={expenses} budget={budget} dashBoardDisplay={dashBoardDisplayHandler} displaySection={dashBoardDisplay}/>
       </div>
   );
 };
+
+
+
 
 export default MainContent;
 export {months, categories};

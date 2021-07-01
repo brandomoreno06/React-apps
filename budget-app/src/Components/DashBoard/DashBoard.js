@@ -25,12 +25,35 @@ const DashBoard = (props) => {
 
   const deletedItemHandler = (deletedItem) => props.deletedItems(deletedItem);
 
+  console.log(props.displaySection)
+
   return(
     <div className="dashboard">
-      <NewExpense onAddExpense={addExpenseHandler} isEditing={isEditing} />
-      <Expenses expenses={props.expenses} deletedItems={deletedItemHandler} editedItems={editedItemHandler} />
-      <NewBudget onAddBudget={addBudgetHandler}/>
-      <Budget budget={props.budget} deletedItems={deletedItemHandler}/>
+
+      {props.displaySection === "expenses" ?
+        <>
+        <NewExpense onAddExpense={addExpenseHandler} isEditing={isEditing} isEditedHandler = {editedItemHandler} />
+        <Expenses expenses={props.expenses} deletedItems={deletedItemHandler} editedItems={editedItemHandler} />
+        </> : null
+      }
+
+      {props.displaySection === "budget" ?
+        <>
+          <NewBudget onAddBudget={addBudgetHandler}/>
+          <Budget budget={props.budget} deletedItems={deletedItemHandler}/>
+        </> : null
+      }
+
+      
+      {props.displaySection === "overview" ?
+        <>
+          <NewExpense onAddExpense={addExpenseHandler} isEditing={isEditing} isEditedHandler = {editedItemHandler} />
+          <Expenses expenses={props.expenses} deletedItems={deletedItemHandler} editedItems={editedItemHandler} />
+          <NewBudget onAddBudget={addBudgetHandler}/>
+          <Budget budget={props.budget} deletedItems={deletedItemHandler}/>
+        </> : null
+      }
+
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { categories } from "../MainSection/MainContent";
 
 
 const ExpenseForm = (props) => {
+
     const [newExpense, setNewExpense] = useState({
         category: "Housing",
         amount: "",
@@ -21,7 +22,6 @@ const ExpenseForm = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        
         if(amount <= 0) return;
 
         const expenseData = {
@@ -29,36 +29,25 @@ const ExpenseForm = (props) => {
             amount: parseFloat(amount),
             date: new Date(date),
             notes: notes,
+            type: props.isEditing ? props.isEditing[4] : "expense",
+            id: props.isEditing ? props.isEditing[5] : Math.random().toString(),
+            edited: props.isEditing ? true : false
         };
+
         props.onSaveExpenseData(expenseData);
+        props.isEditedHandler("");
+        
         setNewExpense({
             category: "Housing",
             amount: "",
             date: "2021-06-28",
             notes: ""
         })
+
+        console.log(expenseData)
     }
 
-    //To Continue.... utilize submit handler...with type"edit"
-    const confirmEditHandler = () => {
-        const [category, amount, notes, date, type, id] = props.isEditing;
-        
-        const expenseDataEdit = {
-            category: category,
-            amount: parseFloat(amount),
-            date: new Date(date),
-            notes: notes,
-            type: type,
-            id: id
-        }
-
-        console.log(expenseDataEdit)
-    }
-    //To Continue....
-
-
-    //on Cancel
-    const hideFormHandler = () => props.hideFormHandler();
+    const hideFormHandler = () => {props.hideFormHandler(false)};
 
     return(
         <form onSubmit={submitHandler} className={props.className}>
@@ -83,7 +72,8 @@ const ExpenseForm = (props) => {
                         <button type="button" onClick={hideFormHandler}>Cancel</button>
                         <button type="submit">Add Expense</button>
                     </div> :
-                    <button type="button" onClick={confirmEditHandler}>Confirm Edit</button>
+                    <button type="submit">Confirm Edit</button>
+                    
                 }
 
             </div>

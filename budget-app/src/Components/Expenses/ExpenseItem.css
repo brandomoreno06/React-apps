@@ -79,3 +79,7 @@
 .expense-item:hover .edit__icon {
   display: block;
 }
+
+.item__editing {
+  background-color: rgba(255,55,55,0.2) !important;
+}
