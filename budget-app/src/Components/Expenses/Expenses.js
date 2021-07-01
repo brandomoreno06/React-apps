@@ -4,6 +4,7 @@ import Card from "../UI/Card"
 import ExpensesList from "./ExpensesList"
 import ExpensesFilter from "./ExpensesFilter";
 import { months } from "../MainSection/MainContent";
+// import ExpensesChart from "../Chart/ExpensesChart";
 
 
 const Expenses = (props) => {
@@ -11,6 +12,7 @@ const Expenses = (props) => {
     const [filteredYear, setSelectedYear] = useState(["year", "all"]);
     const [filteredMonth, setSelectedMonth] = useState(["month", "all"]);
     const [filteredCategoy, setSelectedCategory] = useState(["category", "all"]);
+    const [chartView, setChartView] = useState("year")
 
     const yearValue = filteredYear[1];
     const monthValue = filteredMonth[1];
@@ -19,7 +21,7 @@ const Expenses = (props) => {
 
     const filterChangeHandler = (selectedValue) => {
         const name = selectedValue[0];
-        if(name === "year") { setSelectedYear(selectedValue) }
+        if(name === "year") { setSelectedYear(selectedValue);}
         if(name === "month") { setSelectedMonth(selectedValue) }
         if(name === "category") { setSelectedCategory(selectedValue) }
     }
@@ -59,7 +61,7 @@ const Expenses = (props) => {
         <div>
             <Card className="expenses">
                 <ExpensesFilter expenses={props.expenses} onChangeFilter={filterChangeHandler} />
-                {/* <ExpensesChart /> */}
+                {/* <ExpensesChart expenses={filteredExpenses} /> */}
                 <ExpensesList items={expenseList} deletedItemHandler={props.deletedItemHandler} deletedItems={deletedItemHandler} editedItems={editedItemHandler} />
             </Card> 
         </div>

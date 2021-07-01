@@ -19,18 +19,19 @@ const ExpenseItem = (props) => {
         const deletedItem = [props.type, props.id]
         props.isDeleted(deletedItem);
         showDeleteQueryHandler();
+        console.log("deleted", deletedItem)
     }
 
     const[showEditQuery, setShowEditQuery] = useState(false);
-    const showEditQueryHandler = () => { setShowEditQuery(!showEditQuery); }
+    const showEditQueryHandler = () => { setShowEditQuery(!showEditQuery);}
     const cancelEditHandler = () => {showEditQueryHandler()};
 
 
     const proceedEditHandler = () => {
         const editedItem = [props.category, props.amount, props.notes, props.date, props.type, props.id]
-        console.log(editedItem)
         props.isEdited(editedItem);
         showEditQueryHandler();
+        console.log(editedItem)
     }
 
     return (
