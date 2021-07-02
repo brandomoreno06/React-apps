@@ -1,30 +1,73 @@
-.chart-bar {
-    height: 100%;
-    display: flex;
+.chart-bars-container {
+    display:flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    width: 10%;
+    row-gap: 0.1rem;
 }
 
-.chart-bar__inner {
+
+.chart-budget, .chart-expense {
     height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
-    border: 1px solid #313131;
-    border-radius: 12px;
-    background-color: #c3b4f3;
+    position: relative;
+}
+
+.chart-budget {
+    border-bottom: 1px solid lightblue;
+}
+
+.chart-expense {
+    border-top: 1px solid orange;
+}
+
+
+.chart-bar__inner {
+    height: 5rem;
+    width: 40%;
     overflow: hidden;
+    box-shadow: rgba(0,0,0,0.5);
+}
+
+.chart-budget > .chart-bar__inner {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
-.chart-bar__fill {
-    background-color: #4826b9;
+.chart-expense > .chart-bar__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.chart-expense > .chart-bar__inner > .chart-bar__fill {
+    background: rgb(180,58,110);
+    background: linear-gradient(45deg, rgba(180,58,110,1) 0%, rgba(253,29,29,0.6699054621848739) 19%, rgba(252,176,69,1) 100%)  
+}
+
+
+.chart-budget > .chart-bar__inner > .chart-bar__fill {
     width: 100%;
     transition: all 0.3s ease-out;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 13%, rgba(9,121,95,1) 69%, rgba(0,255,235,1) 100%);
 }
 
 .chart-bar__label {
     font-weight: bold;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     text-align: center;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    position: absolute;
+    right: 1.1rem;
+    top: 5.3rem;
+    text-shadow: 0 0 5px 2px rgba(250,250,250,0.5);
 }

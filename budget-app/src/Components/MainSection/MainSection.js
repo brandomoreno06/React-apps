@@ -15,10 +15,12 @@ const MainSection = (props) => {
         setIsUserLoggedIn(isSucess)
     }
 
+    const expensesHandler = (expenses) => {props.expensesHandler(expenses)}
+
     return(
         <div className="main-section">
             { !isUserLoggedIn &&  <UserSetup onSucessfulRegister={storeUserHandler} registeredAccounts={props.registeredAccounts} isUserLoggedIn={isLoggedInHandler}/> }
-            { isUserLoggedIn && <MainContent /> }
+            { isUserLoggedIn && <MainContent expensesHandler={expensesHandler} /> }
         </div>
     );
 };

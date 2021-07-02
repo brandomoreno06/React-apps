@@ -9,7 +9,7 @@ const ExpenseForm = (props) => {
     const [newExpense, setNewExpense] = useState({
         category: "Housing",
         amount: "",
-        date: "2021-06-28",
+        date: new Date(),
         notes: "",
     });
 

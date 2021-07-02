@@ -1,5 +1,6 @@
 import "./SideBar.css"
 import AccountSummary from "../AccountSummary/AccountSummary";
+import SummaryChart from "../Chart/SummaryChart";
 
 
 const SideBar = (props) => {
@@ -20,6 +21,7 @@ const SideBar = (props) => {
             <button className="cards_budget-expenses card card__background" onClick={budgetSectionHandler}>BUDGET</button>
             <button className="cards_budget-expenses card card__background" onClick={expenseSectionHandler}>EXPENSES</button>
         </div>
+        <SummaryChart expenses={props.expenses} budget={props.budget}/>
         </div>
     )
 }

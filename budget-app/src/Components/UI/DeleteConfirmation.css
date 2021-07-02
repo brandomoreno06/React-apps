@@ -32,3 +32,7 @@
     align-items: center;
     margin-top: 1rem;
 }
+
+.delete__confirmation h3 {
+    color: red;
+}

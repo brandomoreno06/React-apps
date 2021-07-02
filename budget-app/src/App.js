@@ -10,15 +10,8 @@ const usersData = [
     email: "avion@gmail.com",
     contact: "0921",
     username: "avion",
-    password: "qwerty" 
-  },
-  { 
-    firstName: "avion2",
-    lastName: "school2",
-    email: "avion2@gmail.com",
-    contact: "0921",
-    username: "avion2",
-    password: "qwerty2" 
+    password: "qwerty",
+    isLoggedIn: false
   },
   { 
     firstName: "a",
@@ -26,7 +19,8 @@ const usersData = [
     email: "avion2@gmail.com",
     contact: "0921",
     username: "a",
-    password: "a" 
+    password: "a",
+    isLoggedIn: false
   }
 ];
 
@@ -45,12 +39,15 @@ function App() {
   //Store users in local storage after state has changed
   useEffect(() => localStorage.setItem("accountsDataBase", JSON.stringify(users)));
 
+  const expensesHandler = (expenses) => {
+    console.log(expenses)
+  }
   
 
   return (
     <div className="App">
       <Header />
-      <MainSection registerUsers={addUserHandler} registeredAccounts={users} />
+      <MainSection registerUsers={addUserHandler} registeredAccounts={users} expensesHandler={expensesHandler} />
     </div>
   );
 };

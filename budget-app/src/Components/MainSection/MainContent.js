@@ -58,6 +58,34 @@ const DUMMY_BUDGET = [
   {
     category: "Insurance",
     amount: 100000,
+    date: new Date(2021, 6),
+    type: "budget",
+    id: 20
+  },
+  {
+    category: "Housing",
+    amount: 1000000,
+    date: new Date(2021, 6),
+    type: "budget",
+    id: 10
+  },
+  {
+    category: "Food",
+    amount: 1000000,
+    date: new Date(2021, 6),
+    type: "budget",
+    id: 40
+  },
+  {
+    category: "Utilities",
+    amount: 1000000,
+    date: new Date(2021, 6),
+    type: "budget",
+    id: 30
+  },
+  {
+    category: "Insurance",
+    amount: 100000,
     date: new Date(2022, 9),
     type: "budget",
     id: 20
@@ -65,7 +93,7 @@ const DUMMY_BUDGET = [
   {
     category: "Housing",
     amount: 1000000,
-    date: new Date(2023, 3),
+    date: new Date(2023, 6),
     type: "budget",
     id: 10
   }
@@ -92,6 +120,7 @@ const MainContent = (props) => {
         return [expense, ...previousExpenses]; 
       }
     })
+    props.expensesHandler(expenses);
   }
 
 
