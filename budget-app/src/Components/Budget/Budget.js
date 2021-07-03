@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Budget.css";
 import Card from "../UI/Card";
 import BudgetList from "./BudgetList";
-import BudgetFilter from "./BudgetFilter";
+import Filter from "../UI/Filter";
 import { months } from "../MainSection/MainContent";
 
 
@@ -56,7 +56,7 @@ const Budget = (props) => {
   return(
     <div>
       <Card className="budget">
-        <BudgetFilter budget={props.budget} onChangeFilter={filterChangeHandler} />
+        <Filter onChangeFilter={filterChangeHandler} type={props.budget}/>
         <BudgetList items={budgetList} deletedItems={deletedItemHandler} />
       </Card> 
     </div>
