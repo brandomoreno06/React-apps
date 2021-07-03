@@ -3,6 +3,8 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import MainSection from "./Components/MainSection/MainSection";
 
+
+
 const usersData = [
   { 
     firstName: "avion",
@@ -11,7 +13,22 @@ const usersData = [
     contact: "0921",
     username: "avion",
     password: "qwerty",
-    isLoggedIn: false
+    expenses: {
+      category: "Housing",
+      amount: 100000,
+      notes: "travel to mars",
+      date: new Date(2023, 3, 25),
+      type: "expense",
+      id: 10
+    },
+    budget: {
+      category: "Food",
+      amount: 1000000,
+      date: new Date(2021, 5),
+      type: "budget",
+      id: 40
+    },
+
   },
   { 
     firstName: "a",
@@ -20,13 +37,14 @@ const usersData = [
     contact: "0921",
     username: "a",
     password: "a",
-    isLoggedIn: false
   }
 ];
 
 
+
+
 function App() {
-  localStorage.clear()
+
   let accountsDataBase = JSON.parse(localStorage.getItem("accountsDataBase"))
   accountsDataBase = accountsDataBase ?  accountsDataBase : usersData;
   
@@ -37,17 +55,36 @@ function App() {
     })
   }
   //Store users in local storage after state has changed
-  useEffect(() => localStorage.setItem("accountsDataBase", JSON.stringify(users)));
+  useEffect(() => localStorage.setItem("accountsDataBase", JSON.stringify(users)), [users]);
+  // localStorage.clear("accountsDataBase")
 
-  const expensesHandler = (expenses) => {
-    console.log(expenses)
+
+  const [currentUser, updateCurrentUser] = useState({});
+  const isLoggedInHandler = (foundUser) => {
+    updateCurrentUser(foundUser);
   }
-  
+
+
+  const expensesAndBudgetHandler = (expensesOrBudget) => {
+    const [value, type] = expensesOrBudget;
+    const userIndex = users.findIndex((user) => {
+      return user.username === currentUser.username
+    })
+
+    if(type === "expenses") { currentUser.expenses = value; }
+    if(type === "budget") { currentUser.budget = value; }
+    setUsers((users) => {
+      users[userIndex] = currentUser;
+      return [...users];
+    })
+
+  }
+
 
   return (
     <div className="App">
       <Header />
-      <MainSection registerUsers={addUserHandler} registeredAccounts={users} expensesHandler={expensesHandler} />
+      <MainSection registerUsers={addUserHandler} registeredAccounts={users} isUserLoggedIn={isLoggedInHandler} expensesHandler={expensesAndBudgetHandler} budgetHandler={expensesAndBudgetHandler} currentUser={currentUser}/>
     </div>
   );
 };

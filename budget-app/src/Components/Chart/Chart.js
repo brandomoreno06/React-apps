@@ -4,7 +4,7 @@ import ChartBar from "./ChartBar"
 const Chart =(props) => {
 
     const budgetPointValues = props.dataPoints.map((dataPoint) => dataPoint.valueBudget);
-    const expensePointValues = props.dataPoints.map((dataPoint) => dataPoint.valueBudget);
+    const expensePointValues = props.dataPoints.map((dataPoint) => dataPoint.valueExpense);
 
 
     const totalMaximumBudget = Math.max(...budgetPointValues);

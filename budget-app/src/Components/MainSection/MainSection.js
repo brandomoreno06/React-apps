@@ -4,6 +4,7 @@ import MainContent from "./MainContent";
 import { useState } from "react";
 
 
+
 const MainSection = (props) => {
     const storeUserHandler = (user) => {
         const newUser = {...user}
@@ -11,16 +12,24 @@ const MainSection = (props) => {
     }
 
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-    const isLoggedInHandler = (isSucess) => {
-        setIsUserLoggedIn(isSucess)
+
+    const expensesHandler = (expenses) => {
+        props.expensesHandler(expenses)
     }
 
-    const expensesHandler = (expenses) => {props.expensesHandler(expenses)}
+    const budgetHandler = (budget) => {
+        props.budgetHandler(budget)
+    }
 
+    const isLoggedInHandler = (foundUser) => {
+        setIsUserLoggedIn(foundUser);
+        props.isUserLoggedIn(foundUser)
+        // console.log(foundUser)
+    }
     return(
         <div className="main-section">
             { !isUserLoggedIn &&  <UserSetup onSucessfulRegister={storeUserHandler} registeredAccounts={props.registeredAccounts} isUserLoggedIn={isLoggedInHandler}/> }
-            { isUserLoggedIn && <MainContent expensesHandler={expensesHandler} /> }
+            { isUserLoggedIn && <MainContent expensesHandler={expensesHandler} budgetHandler={budgetHandler} currentUser={props.currentUser}/> }
         </div>
     );
 };

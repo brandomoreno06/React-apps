@@ -33,6 +33,7 @@ const BudgetForm = (props) => {
             amount: "",
             date: "2021-06",
         })
+        props.hideFormHandler(false)
     }
 
     //on Cancel

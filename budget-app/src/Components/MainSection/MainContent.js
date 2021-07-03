@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./MainContent.css";
 import DashBoard from "../DashBoard/DashBoard";
 import SideBar from "../SideBar/SideBar";
+
 
 
 const DUMMY_EXPENSES = [
@@ -108,8 +109,18 @@ const categories = ["Housing", "Transportation", "Food", "Utilities", "Insurance
 
 const MainContent = (props) => {
 
-  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  // console.log(JSON.parse(localStorage.getItem("accountsDataBase")))
+  let initialExpenses = DUMMY_EXPENSES ? DUMMY_EXPENSES : [];
+  let initialBudget = DUMMY_BUDGET ? DUMMY_BUDGET : [];
 
+
+  const [expenses, setExpenses] = useState(initialExpenses);
+  useEffect(() => {props.expensesHandler([expenses, "expenses"]);}, [expenses])
+
+  const [budget, setBudget] = useState(initialBudget);
+  useEffect(() => {props.expensesHandler([]);}, [budget])
+
+  //save nwe or edited expense
   const saveNewExpense = (expense) => {
     setExpenses((previousExpenses) => {
       if(expense.edited === true) {
@@ -120,19 +131,19 @@ const MainContent = (props) => {
         return [expense, ...previousExpenses]; 
       }
     })
-    props.expensesHandler(expenses);
   }
 
-
-  const [budget, setBudget] = useState(DUMMY_BUDGET);
-  const saveNewBudget = (budget) => {
+  //save new budget
+  const saveNewBudget = (newBudget) => {
     setBudget((previousBudget) => {
-      console.log(previousBudget)
-      return [budget, ...previousBudget];
+      return [newBudget, ...previousBudget];
     })
+    props.budgetHandler([budget, "budget"]);
+    console.log(budget)
   }
+ 
 
-
+  //update expenses and budget after deleting an item
   const deletedItemHandler = (deletedItem) => {
     const [type, id] = deletedItem;
 
@@ -141,6 +152,7 @@ const MainContent = (props) => {
       setExpenses(expenses => {
         return [...expenses.slice(0, indexOfDeleted), ...expenses.slice(indexOfDeleted + 1)];
       });
+
     }
     if(type === "budget") {
       const indexOfDeleted = budget.map(budget => { return budget.id; }).indexOf(id);
@@ -150,10 +162,10 @@ const MainContent = (props) => {
     }
   }
 
+  //show sections in dashboard area;
   const [dashBoardDisplay, setDashBoardDisplay] = useState("overview");
   const dashBoardDisplayHandler = (section) => {
     setDashBoardDisplay(section)
-    console.log(dashBoardDisplay)
   }
 
   return(

@@ -16,12 +16,13 @@ const LoginForm = (props) => {
 
     const registerClickHandler = () => props.isRegisterClick(true);
     
-    const loginHandler = (e) => {
+    const loginHandler = async (e) => {
         e.preventDefault();
-        const foundUser = props.registeredAccounts.find(user => (user.username === username))
+        const foundUser = await props.registeredAccounts.find(user => (user.username === username))
         if (foundUser && foundUser.password === password) {
-            props.loginSucessHandler(true);
+            props.loginSucessHandler(foundUser);
         }
+        console.log(foundUser)
     }
 
 

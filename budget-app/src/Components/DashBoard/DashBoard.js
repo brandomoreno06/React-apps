@@ -25,7 +25,6 @@ const DashBoard = (props) => {
 
   const deletedItemHandler = (deletedItem) => props.deletedItems(deletedItem);
 
-  console.log(props.displaySection)
 
   return(
     <div className="dashboard">

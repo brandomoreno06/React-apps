@@ -15,17 +15,16 @@ const UserSetup = (props) => {
     const submitRegisterHandler = (userData) => {
         const user = {...userData, id: userData.username};
         props.onSucessfulRegister(user);
+        setIsRegister(false);
     }
 
-    // const [loginSuccess, setLoginSucess] = useState(false)
-    const showMainContentHandler = (isSucess) => {
-        // setLoginSucess(isSucess);
-        props.isUserLoggedIn(isSucess);
+    const loginSucessHandler = (foundUser) => {
+        props.isUserLoggedIn(foundUser);
     }
 
     return(
         <div className="user-setup">
-            {!isRegistering && <LoginForm isRegisterClick={registerFormHandler} registeredAccounts={props.registeredAccounts} loginSucessHandler={showMainContentHandler} /> }
+            {!isRegistering && <LoginForm isRegisterClick={registerFormHandler} registeredAccounts={props.registeredAccounts} loginSucessHandler={loginSucessHandler} /> }
             {isRegistering && <UserRegistration isRegisterCancel={registerFormHandler} onSubmitRegister={submitRegisterHandler} />}
         </div>
     )

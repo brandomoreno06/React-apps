@@ -3,12 +3,12 @@ import "./ChartBar.css"
 const ChartBar = (props) => {
     let budgetBarFillHeight = "0%";
     if(props.maxBudget > 0) {
-        budgetBarFillHeight = Math.round(((props.valueBudget-props.valueExpense) / props.maxBudget) * 100) + "%" ;
+        budgetBarFillHeight = Math.round(((props.valueBudget) / props.maxBudget) * 100) + "%" ;
     }
 
     let expenseBarFillHeight = "0%";
     if(props.maxExpense > 0) {
-        expenseBarFillHeight = Math.round((props.valueExpense / props.maxBudget) * 100) + "%" ;
+        expenseBarFillHeight = Math.round((props.valueExpense / props.maxExpense) * 100) + "%" ;
     }
 
     let remainingBudgetstyle = "1px solid lightblue";

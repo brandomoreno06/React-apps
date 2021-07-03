@@ -12,7 +12,6 @@ const Expenses = (props) => {
     const [filteredYear, setSelectedYear] = useState(["year", "all"]);
     const [filteredMonth, setSelectedMonth] = useState(["month", "all"]);
     const [filteredCategoy, setSelectedCategory] = useState(["category", "all"]);
-    const [chartView, setChartView] = useState("year")
 
     const yearValue = filteredYear[1];
     const monthValue = filteredMonth[1];
@@ -26,7 +25,8 @@ const Expenses = (props) => {
         if(name === "category") { setSelectedCategory(selectedValue) }
     }
 
-    const filteredExpenses = props.expenses.filter((expense) => { 
+    //Filter multiple values(year, month, date)
+    const filteredExpenses = props.expenses.filter((expense) => {
         if (yearValue === "all") {
             if(monthValue === "all") {return expense.category === categoryValue };
             if(categoryValue === "all") { return expense.date.getMonth() === months.indexOf(monthValue)}
@@ -61,7 +61,6 @@ const Expenses = (props) => {
         <div>
             <Card className="expenses">
                 <ExpensesFilter expenses={props.expenses} onChangeFilter={filterChangeHandler} />
-                {/* <ExpensesChart expenses={filteredExpenses} /> */}
                 <ExpensesList items={expenseList} deletedItemHandler={props.deletedItemHandler} deletedItems={deletedItemHandler} editedItems={editedItemHandler} />
             </Card> 
         </div>
