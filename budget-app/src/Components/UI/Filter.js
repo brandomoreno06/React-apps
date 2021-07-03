@@ -1,16 +1,15 @@
-import "./ExpensesFilter.css";
+import "./Filter.css";
 import { months, categories } from "../MainSection/MainContent";
 
 
-const ExpensesFilter = (props) => {
+const Filter = (props) => {
 
-    const allYears = props.expenses.map(expense => {return expense.date.getFullYear()})
+    const allYears = props.type.map(expense => {return expense.date.getFullYear()})
     const uniqueYears = [...new Set(allYears)].sort((a,b) => a-b);
     
     const dropDown = (e) => {
         props.onChangeFilter([e.target.name, e.target.value]);
     }
-   
     
 
     return(
@@ -46,4 +45,4 @@ const ExpensesFilter = (props) => {
 }
 
 
-export default ExpensesFilter;
+export default Filter;
