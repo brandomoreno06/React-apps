@@ -20,3 +20,12 @@ The main features are:
 
 ![image](https://user-images.githubusercontent.com/81558435/140469811-d6b014c5-25f9-4d4d-9223-48ca0fe1b131.png)
 ![image](https://user-images.githubusercontent.com/81558435/140469861-c5386364-9960-4e51-9775-647283507801.png)
+![image](https://user-images.githubusercontent.com/81558435/140471049-30e13895-fd06-424b-b9ae-14e85e624a55.png)
+
+
+#### Test credentials
+
+```
+  username: avion
+  password: qwerty
+```
