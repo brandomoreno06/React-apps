@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# React-apps - Budget and Expense Trackers
+### Practice projects when starting to learn REACT JS.
+Optimized for learning the passing of props from parent to children and passing values to props from children to parent.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Concepts learned during the course of development:
+1. Creating react app
+2. Functional Components 
+3. Props, and state & effect hooks.
 
-## Available Scripts
+#### About the project
+These practice projects are Budget and Expense Trackers.
+The main features are:
+1. User is able to register and sign in with his own credentials.
+2. User is able to add new expense items with specific details.
+3. User is able to add new budget items with specific details.
+4. User is able to view his account summary on the dashboard.
+5. User is able to view the summary chart against his bugget and expenses.
 
-In the project directory, you can run:
+### Screenshots
 
-### `npm start`
+![image](https://user-images.githubusercontent.com/81558435/140469811-d6b014c5-25f9-4d4d-9223-48ca0fe1b131.png)
+![image](https://user-images.githubusercontent.com/81558435/140469861-c5386364-9960-4e51-9775-647283507801.png)
+![image](https://user-images.githubusercontent.com/81558435/140471049-30e13895-fd06-424b-b9ae-14e85e624a55.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Test credentials
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+  username: avion
+  password: qwerty
+```
